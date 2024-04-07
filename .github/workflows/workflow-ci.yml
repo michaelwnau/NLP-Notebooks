@@ -1,11 +1,29 @@
-on: [push]
+# on: [push]
+
+# jobs:
+#     build-and-publish:
+#       runs-on: ubuntu-latest
+#       name: My workflow
+#       steps:
+#         - name: Execute Action Graph
+#           uses: actionforge/action@b350d491aef4ae17ac4f5270a2fc5186be0f39db  # v0.9.42
+#           with:
+#             graph_file: workflow-ci.yml
+on: push
 
 jobs:
-    build-and-publish:
-      runs-on: ubuntu-latest
-      name: My workflow
-      steps:
-        - name: Execute Action Graph
-          uses: actionforge/action@b350d491aef4ae17ac4f5270a2fc5186be0f39db  # v0.9.42
-          with:
-            graph_file: workflow-ci.yml
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Scan code for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+
+      - name: Build
+        run: |
+          poetry install
+          poetry build
