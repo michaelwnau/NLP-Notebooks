@@ -28,12 +28,13 @@ jobs:
         with:
           python-version: "3.12" # Adjust to the Python version required by your project
 
+      - name: Install pyzmq with pip as a workaround
+        run: pip install pyzmq==24.0.1
+
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
-      - name: Install pyzmq with pip as a workaround
-        run: pip install pyzmq==24.0.1
 
       - name: Build
         run: |
