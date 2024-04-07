@@ -24,6 +24,7 @@ ipyvue = "^1.8.1"
 tiktoken = "^0.6.0"
 scrapy = "^2.11.1"
 tensorflow = "^2.8.0"
+pyzmq = "^25.1.2"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
