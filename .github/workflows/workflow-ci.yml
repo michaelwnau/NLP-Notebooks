@@ -23,6 +23,16 @@ jobs:
         with:
           path: ./
 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9" # Adjust this to the Python version you need for your project
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+          echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+
       - name: Build
         run: |
           poetry install
