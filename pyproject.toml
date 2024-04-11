@@ -22,7 +22,7 @@ ipywidgets = "^7.6.5"
 ipympl = "^0.8.8"
 ipyvue = "^1.8.1"
 tiktoken = "^0.6.0"
-scrapy = "^2.11.1"
+scrapy == "^2.11.1"
 tensorflow = "^2.8.0"
 transformers = "^4.12.5"
 [build-system]
