@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
 
       - name: Scan code for secrets
         uses: trufflesecurity/trufflehog@v3.73.0
